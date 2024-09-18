@@ -1,0 +1,32 @@
+﻿@model unitoneproject.Models.MathModel
+
+@{
+    ViewData["Title"] = "Addition Calculator";
+}
+
+<div class="text-center">
+    <h2>Addition Calculator</h2>
+    <p><small>(Because you're too dumb to do it in your head)</small></p>
+
+    <form asp-action="Calculate" method="post">
+        <div class="form-group">
+            <label asp-for="Number1">Enter First Number</label>
+            <input asp-for="Number1" class="form-control" />
+            <span asp-validation-for="Number1" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Number2">Enter Second Number</label>
+            <input asp-for="Number2" class="form-control" />
+            <span asp-validation-for="Number2" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Calculate" class="btn btn-success" />
+        </div>
+
+        @if (Model != null)
+        {
+            <h3>Result: @Model.Result</h3>
+        }
+    </form>
+</div>
+
